@@ -35,19 +35,7 @@ kompas-kerja-app/
 └── postcss.config.js
 ```
 
-## 4. Dua hal yang beda dari versi Pertama
-
-**a. Penyimpanan data (pelacak jam, kalkulator, checklist, kanban)**
-Di Claude.ai, app ini pakai `window.storage` (API khusus sandbox Claude). Di luar Claude.ai itu tidak ada, jadi `src/main.jsx` sudah saya isi shim kecil yang menggantinya dengan `localStorage` browser biasa — jadi datamu tetap tersimpan otomatis, tapi sekarang tersimpan di browser kamu sendiri (per browser, per komputer).
-
-**b. Fitur "Cek Reputasi Tempat Kerja Asli"**
-Fitur ini memanggil Anthropic API langsung dari browser. Di Claude.ai, panggilan ini ditangani otomatis tanpa kamu perlu API key. Di luar Claude.ai, kamu perlu:
-1. Bikin API key di https://console.anthropic.com/settings/keys
-2. Tempel di kolom "Anthropic API key" yang muncul saat fitur itu dibuka
-
-⚠️ **Penting:** cara ini (API key ditempel langsung di browser) hanya aman untuk kamu pakai sendiri di `localhost`. **Jangan** deploy versi ini ke internet publik dengan kolom API key seperti itu — siapa pun bisa mengambil key-mu lewat DevTools browser. Kalau nanti mau di-deploy publik, panggilan ke Anthropic API itu perlu dipindah ke backend/serverless function supaya key-nya tidak terlihat pengguna.
-
-## 5. Build untuk production (opsional)
+## 4. Build untuk production (opsional)
 ```
 npm run build
 ```
