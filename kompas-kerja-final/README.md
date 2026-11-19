@@ -35,7 +35,7 @@ kompas-kerja-app/
 └── postcss.config.js
 ```
 
-## 4. Dua hal yang beda dari versi di Claude.ai
+## 4. Dua hal yang beda dari versi Pertama
 
 **a. Penyimpanan data (pelacak jam, kalkulator, checklist, kanban)**
 Di Claude.ai, app ini pakai `window.storage` (API khusus sandbox Claude). Di luar Claude.ai itu tidak ada, jadi `src/main.jsx` sudah saya isi shim kecil yang menggantinya dengan `localStorage` browser biasa — jadi datamu tetap tersimpan otomatis, tapi sekarang tersimpan di browser kamu sendiri (per browser, per komputer).
